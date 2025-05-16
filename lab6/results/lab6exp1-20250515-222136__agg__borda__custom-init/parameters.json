@@ -1,0 +1,12 @@
+{
+    "n_users": 100,
+    "n_influencers": 10,
+    "n_products": 22,
+    "seed": 42,
+    "init_score": "custom",
+    "score_rule": "borda",
+    "convex": true,
+    "p": 2.0,
+    "metric": "agg",
+    "verbose": false
+}

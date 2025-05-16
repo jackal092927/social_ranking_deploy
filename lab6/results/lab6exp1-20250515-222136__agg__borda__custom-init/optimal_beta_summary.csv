@@ -1,0 +1,6 @@
+Alpha,Random_Max_Score,Random_Optimal_Beta,Independent_Max_Score,Independent_Optimal_Beta,Sequential_Max_Score,Sequential_Optimal_Beta,CAGGRIM_Max_Score,CAGGRIM_Optimal_Beta
+0.6,100,0.2,100,0.2,200,0.2,200,0.2
+0.7,100,0.2,100,0.2,200,0.2,200,0.2
+0.7999999999999999,100,0.2,100,0.2,200,0.2,200,0.2
+0.8999999999999999,100,0.2,100,0.2,200,0.8000000000000003,200,0.2
+0.9999999999999999,100,0.2,100,0.2,100,0.2,200,0.2
