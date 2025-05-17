@@ -18,7 +18,7 @@ To reproduce the results, please follow the instructions below after setting up 
 1.  Ensure all necessary data is available (if any external data sources are used, please specify access instructions here or ensure data is included).
 2.  Open and run the `sync_exp.ipynb` notebook using Jupyter Lab or Jupyter Notebook.
 
-## Code Structure
+<!-- ## Code Structure
 
 (Optional: Briefly describe the organization of other code files if any, e.g., utility scripts, model implementations)
 
@@ -28,4 +28,4 @@ To reproduce the results, please follow the instructions below after setting up 
 
 ## Contact
 
-For any questions regarding the code or reproducibility, please open an issue in this repository. (Note: For anonymous review, direct contact information should be omitted.) 
+For any questions regarding the code or reproducibility, please open an issue in this repository. (Note: For anonymous review, direct contact information should be omitted.)  -->
