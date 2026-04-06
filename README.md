@@ -11,7 +11,6 @@ This repository is a minimized, anonymized replication package prepared for jour
 - `lab6/visualization_helper.py`: Figure and summary-table generation utilities.
 - `plot_caggrim_ratio_heatmap.py`: Standalone plotting helper for comparison surfaces.
 - `lab6/results/`: Included output directories for the archived `agg` and `card` runs.
-- `lab9/data_loader.py`: Optional loaders for external network datasets referenced by exploratory code.
 
 ## Environment Setup
 
@@ -69,7 +68,6 @@ Each directory contains:
 
 - The default experiments are seeded (`seed=42`) for deterministic synthetic initialization.
 - The main experiment code can be run either as a script (`python lab6/exp1.py ...`) or as a module (`python -m lab6.exp1 ...`).
-- External network datasets used by `lab9/data_loader.py` are not bundled in this archive; if those exploratory loaders are used, the corresponding raw files must be placed in the expected relative paths documented in that module.
 - This submission copy intentionally omits links to the public development repository and does not include author-identifying contact metadata.
 
 ## Anonymous Submission Notes
