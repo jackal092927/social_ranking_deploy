@@ -6,3 +6,5 @@ lab6/.DS_Store
 lab6/results/*
 alpha_beta_sensitivity_results__borda.csv
 lab6/.DS_Store
+.ipynb_checkpoints/
+.venv/

@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "Anonymous review copy. Replace with author-attributed citation metadata after the review process."
+title: "Anonymous Submission Replication Package"
+type: software
+authors:
+  - family-names: "Anonymous"
+    given-names: "Authors"
+abstract: "An anonymized replication package containing code, notebook workflows, and archived outputs for peer review."
+version: "review-copy"
+date-released: 2026-04-06
+license: "Proprietary"
+keywords:
+  - social ranking
+  - replication package
+  - experiment archive
+preferred-citation:
+  type: generic
+  title: "Anonymous Submission Replication Package"
+  author:
+    - family-names: "Anonymous"
+      given-names: "Authors"
+  year: 2026
+  notes: "Use only during anonymous peer review; replace with the final citation after acceptance."

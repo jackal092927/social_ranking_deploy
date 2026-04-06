@@ -1,7 +1,11 @@
 import numpy as np
 from scipy.interpolate import interp1d
-from curve_function import lp_curve
 import matplotlib.pyplot as plt
+
+try:
+    from .curve_function import lp_curve
+except ImportError:  # pragma: no cover - supports direct script execution
+    from curve_function import lp_curve
 
 def calc_matrix(U, W, user_scores):
     """Calculates residual matrix including target column"""

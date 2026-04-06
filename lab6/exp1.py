@@ -4,17 +4,19 @@ import datetime
 import argparse
 import json
 
-# Add parent directory to path if needed
-current_dir = os.path.dirname(os.path.abspath(__file__)) if "__file__" in globals() else os.getcwd()
-parent_dir = os.path.dirname(current_dir)
-if parent_dir not in sys.path:
-    sys.path.insert(0, parent_dir)
-
 import numpy as np
 import matplotlib.pyplot as plt
 
-from lab6.utils import *
-from lab6.visualization_helper import *
+if __package__ in (None, ""):
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    parent_dir = os.path.dirname(current_dir)
+    if parent_dir not in sys.path:
+        sys.path.insert(0, parent_dir)
+    from lab6.utils import *
+    from lab6.visualization_helper import *
+else:
+    from .utils import *
+    from .visualization_helper import *
 
 
 def run_custom_comparison(n_users=100, n_influencers=10, n_products=20, seed=42, alpha=10., beta=0.9,

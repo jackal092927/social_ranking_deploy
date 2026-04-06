@@ -1,31 +1,86 @@
-# Anonymous NeurIPS Submission: Experimental Results
+# Anonymous Submission Replication Package
 
-This repository contains the code and experimental results for a submission to NeurIPS. The primary goal is to ensure the reproducibility of the experiments presented in the paper.
+This repository is a minimized, anonymized replication package prepared for journal submission. It contains the code, notebook workflow, and precomputed outputs needed to inspect and reproduce the experiments without exposing author-identifying repository metadata.
 
-## Notebook
+## Repository Contents
 
-The main demonstration of the experimental results can be found in the Jupyter notebook: `sync_exp.ipynb`. This notebook includes:
+- `sync_exp.ipynb`: Main notebook for reproducing and inspecting the experimental workflow.
+- `lab6/exp1.py`: Command-line entry point for the synthetic experiment suite.
+- `lab6/utils.py`: Core ranking, evaluation, and strategy implementations.
+- `lab6/visualization_helper.py`: Figure and summary-table generation utilities.
+- `plot_caggrim_ratio_heatmap.py`: Standalone plotting helper for comparison surfaces.
+- `lab6/results/`: Included output directories for the archived `agg` and `card` runs.
+- `lab9/data_loader.py`: Optional loaders for external network datasets referenced by exploratory code.
 
-*   Data loading and preprocessing.
-*   Implementation of the proposed method(s).
-*   Comparative analysis with baseline methods.
-*   Generation of plots and figures presented in the paper.
+## Environment Setup
 
-## Reproducibility
+The codebase targets Python 3.10+ and depends on a small scientific Python stack.
 
-To reproduce the results, please follow the instructions below after setting up the required environment (see `requirements.txt`).
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
 
-1.  Ensure all necessary data is available (if any external data sources are used, please specify access instructions here or ensure data is included).
-2.  Open and run the `sync_exp.ipynb` notebook using Jupyter Lab or Jupyter Notebook.
+If you want to execute the notebook locally, install Jupyter in the same environment:
 
-<!-- ## Code Structure
+```bash
+pip install jupyter
+```
 
-(Optional: Briefly describe the organization of other code files if any, e.g., utility scripts, model implementations)
+## Quick Start
 
-*   `sync_exp.ipynb`: Main notebook for reproducing experimental results.
-*   `plot_caggrim_ratio_heatmap.py`: Script for generating specific heatmaps (if applicable and used in the notebook or paper).
-*   (Add other relevant files or directories here)
+Run the notebook:
 
-## Contact
+```bash
+jupyter notebook sync_exp.ipynb
+```
 
-For any questions regarding the code or reproducibility, please open an issue in this repository. (Note: For anonymous review, direct contact information should be omitted.)  -->
+Run the main experiment driver from the command line:
+
+```bash
+python -m lab6.exp1 --metric agg --score_rule borda --init_score custom
+python -m lab6.exp1 --metric card --score_rule borda --init_score custom
+```
+
+Generate a comparison plot from an existing results table:
+
+```bash
+python plot_caggrim_ratio_heatmap.py \
+  --filepath lab6/results/lab6exp1-20250515-222136__agg__borda__custom-init/alpha_beta_sensitivity_results.csv
+```
+
+## Included Results
+
+The repository already includes two result directories that document the archived baseline runs:
+
+- `lab6/results/lab6exp1-20250515-222136__agg__borda__custom-init`
+- `lab6/results/lab6exp1-20250515-222800__card__borda__custom-init`
+
+Each directory contains:
+
+- `parameters.json`: the exact parameterization used for the run;
+- `alpha_beta_sensitivity_results.csv`: the aggregated results table;
+- `optimal_beta_summary.csv`: summary statistics over the parameter sweep;
+- publication-style PNG figures generated from the sweep.
+
+## Reproducibility Notes
+
+- The default experiments are seeded (`seed=42`) for deterministic synthetic initialization.
+- The main experiment code can be run either as a script (`python lab6/exp1.py ...`) or as a module (`python -m lab6.exp1 ...`).
+- External network datasets used by `lab9/data_loader.py` are not bundled in this archive; if those exploratory loaders are used, the corresponding raw files must be placed in the expected relative paths documented in that module.
+- This submission copy intentionally omits links to the public development repository and does not include author-identifying contact metadata.
+
+## Anonymous Submission Notes
+
+- `CITATION.cff` is intentionally anonymous for the review period.
+- `LICENSE` is included as a review-copy notice rather than a public release license.
+- The local Git remote configuration has been removed from this clone to avoid carrying public repository links into the submission artifact.
+
+## Verification
+
+The repository includes a lightweight smoke test covering importability and a reduced-size end-to-end experiment:
+
+```bash
+python -m unittest discover -s tests -p 'test_*.py'
+```
