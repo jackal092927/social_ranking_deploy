@@ -3,6 +3,9 @@ __pycache__/*
 lab6/.DS_Store
 *.pyc
 *.png
+*.gif
+!assets/figures/*.png
+!assets/figures/*.gif
 lab6/results/*
 alpha_beta_sensitivity_results__borda.csv
 lab6/.DS_Store

@@ -2,6 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 from scipy.optimize import fsolve
+from pathlib import Path
+
+ASSET_FIGURE_DIR = Path(__file__).resolve().parents[1] / "assets" / "figures"
+ASSET_FIGURE_DIR.mkdir(parents=True, exist_ok=True)
 
 def lp_norm_curve(p, s, upper_right=True):
     """
@@ -144,7 +148,7 @@ ax.add_patch(lower_polygon)
 # Place legend outside the plot
 plt.legend(loc='upper center', bbox_to_anchor=(0.5, -0.05), ncol=3, fontsize=9)
 plt.tight_layout()
-plt.savefig('lp_norm_curves.png', dpi=300)
+plt.savefig(ASSET_FIGURE_DIR / 'lp_norm_curves.png', dpi=300)
 plt.show()
 
 # Create animation to show the smooth transition
@@ -227,6 +231,6 @@ anim = FuncAnimation(fig, animate, frames=101, init_func=init, blit=True, interv
 plt.tight_layout()
 
 # Uncomment to save the animation
-anim.save('lp_norm_curves_animation.gif', writer='pillow', fps=20, dpi=100)
+anim.save(ASSET_FIGURE_DIR / 'lp_norm_curves_animation.gif', writer='pillow', fps=20, dpi=100)
 
 plt.show()

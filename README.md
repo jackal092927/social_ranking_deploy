@@ -5,6 +5,7 @@ This repository is a minimized, anonymized replication package prepared for jour
 ## Repository Contents
 
 - `sync_exp.ipynb`: Main notebook for reproducing and inspecting the experimental workflow.
+- `assets/figures/`: Example figures and animations kept out of the repository root.
 - `lab6/exp1.py`: Command-line entry point for the synthetic experiment suite.
 - `lab6/utils.py`: Core ranking, evaluation, and strategy implementations.
 - `lab6/visualization_helper.py`: Figure and summary-table generation utilities.

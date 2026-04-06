@@ -7,6 +7,9 @@ import json
 import numpy as np
 import matplotlib.pyplot as plt
 
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ASSET_FIGURE_DIR = os.path.join(REPO_ROOT, "assets", "figures")
+
 if __package__ in (None, ""):
     current_dir = os.path.dirname(os.path.abspath(__file__))
     parent_dir = os.path.dirname(current_dir)
@@ -70,7 +73,8 @@ def run_custom_comparison(n_users=100, n_influencers=10, n_products=20, seed=42,
             plt.xlabel('User (Target)', fontsize=18)
             plt.ylabel('User (Source)', fontsize=18)
             plt.tight_layout()
-            plt.savefig('network_weights_heatmap.png', dpi=300)
+            os.makedirs(ASSET_FIGURE_DIR, exist_ok=True)
+            plt.savefig(os.path.join(ASSET_FIGURE_DIR, 'network_weights_heatmap.png'), dpi=300)
             plt.show()
             
     elif init_score == "custom":

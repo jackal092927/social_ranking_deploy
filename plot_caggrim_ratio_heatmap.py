@@ -7,9 +7,11 @@ import argparse
 import os
 import datetime
 
+DEFAULT_SAVE_DIR = os.path.join('assets', 'figures')
+
 def plot_multiple_methods(methods=['CAGGRIM', 'Sequential', 'Independent'], save_prefix='methods_comparison', 
                           filepath='lab6/results/lab6exp1-20250514-224014__agg__borda__custom-init/alpha_beta_sensitivity_results.csv',
-                          save_dir='.'):
+                          save_dir=DEFAULT_SAVE_DIR):
     """
     Plot performance of multiple methods together on the same 3D surface.
     
@@ -170,7 +172,7 @@ def plot_multiple_methods(methods=['CAGGRIM', 'Sequential', 'Independent'], save
 
 def plot_method_performance(method='CAGGRIM', save_prefix='method_performance', 
                            filepath='lab6/results/lab6exp1-20250514-224014__agg__borda__custom-init/alpha_beta_sensitivity_results.csv',
-                           save_dir='.'):
+                           save_dir=DEFAULT_SAVE_DIR):
     """
     Plot performance of a single method across alpha and beta values.
     
@@ -325,8 +327,8 @@ if __name__ == "__main__":
     parser.add_argument('--filepath', type=str, 
                         default='lab6/results/lab6exp1-20250514-224014__agg__borda__custom-init/alpha_beta_sensitivity_results.csv',
                         help='Path to the CSV file containing the data')
-    parser.add_argument('--save_dir', type=str, default='.',
-                        help='Directory to save plots in (default: current directory)')
+    parser.add_argument('--save_dir', type=str, default=DEFAULT_SAVE_DIR,
+                        help='Directory to save plots in (default: assets/figures)')
     
     args = parser.parse_args()
     
